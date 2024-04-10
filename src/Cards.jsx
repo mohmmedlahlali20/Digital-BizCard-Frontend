@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 function Cards() {
   const [cardsData, setCardsData] = useState([]);
 
-  useEffect(() => {
+  useEffect(() => {    
     const fetchCards = async () => {
       try {
         const token = localStorage.getItem('token');
