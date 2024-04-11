@@ -7,14 +7,15 @@ import Home from './Home';
 import Login from './login';
 import Register from './register';
 import UpdateCard from './UpdateCard';
-
+import T from './T';
 function App() {
   return (
     <Router>
       <div>
         <Navebar />
         <Routes>
-          <Route exact path="/" element={<Home />} />
+        <Route exact path="/" element={<T />} />
+          <Route exact path="/home" element={<Home />} />
           <Route exact path="/Cards" element={<Cards />} />
           <Route exact path="/create_card" element={<AddCardForm />} />
           <Route exact path="/update_card" element={<UpdateCard />} />

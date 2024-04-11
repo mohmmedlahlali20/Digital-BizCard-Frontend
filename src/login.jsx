@@ -35,7 +35,6 @@ const Login = () => {
             navigate("/");
               
         } catch (error) {
-            // Handle login errors
             if (error.response && error.response.status === 401) {
                 setError('Invalid email or password.');
             } else {
@@ -45,36 +44,41 @@ const Login = () => {
     }
 
     return (
-       <div>
-        <div className="login-form">
-            <h2>Login</h2>
-            {error && <p className="error">{error}</p>}
-            <form onSubmit={handleSubmit}>
-                <div className="form-group">
-                    <label htmlFor="email">Email</label>
-                    <input 
-                        type="email" 
-                        id="email" 
-                        name="email" 
-                        value={email} 
-                        onChange={handleEmailChange} 
-                        required 
-                    />
+        <div className="container mt-5">
+            <div className="row justify-content-center">
+                <div className="col-md-6">
+                    <div className="card p-4 shadow">
+                        <h2 className="text-center mb-4">Login</h2>
+                        <form onSubmit={handleSubmit}>
+                            <div className="mb-3">
+                                <label htmlFor="email" className="form-label">Email</label>
+                                <input 
+                                    type="email" 
+                                    className="form-control" 
+                                    id="email" 
+                                    name="email" 
+                                    value={email} 
+                                    onChange={handleEmailChange} 
+                                    required 
+                                />
+                            </div>
+                            <div className="mb-3">
+                                <label htmlFor="password" className="form-label">Password</label>
+                                <input 
+                                    type="password" 
+                                    className="form-control" 
+                                    id="password" 
+                                    name="password" 
+                                    value={password} 
+                                    onChange={handlePasswordChange} 
+                                    required 
+                                />
+                            </div>
+                            <button type="submit" className="btn btn-primary btn-block">Login</button>
+                        </form>
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="password">Password</label>
-                    <input 
-                        type="password" 
-                        id="password" 
-                        name="password" 
-                        value={password} 
-                        onChange={handlePasswordChange} 
-                        required 
-                    />
-                </div>
-                <button type="submit">Login</button>
-            </form>
-        </div>
+            </div>
         </div>
     );
 }

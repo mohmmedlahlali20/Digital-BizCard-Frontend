@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function Cards() {
+  const navigate = useNavigate();
   const [cardsData, setCardsData] = useState([]);
 
   useEffect(() => {    
@@ -50,18 +51,19 @@ function Cards() {
   };
 
   return (
+    <div className="container">
     <div className="cards-container">
       <div>
         <Link to="/create_card">
-          <button className='btn'>Create</button>
+          <button className='btn btn-primary mb-3'>Create</button>
         </Link>
       </div>
-      <table className="cards-table">
+      <table className="table table-striped">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Company</th>
-            <th>Actions</th>
+            <th scope="col">Name</th>
+            <th scope="col">Company</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -70,16 +72,16 @@ function Cards() {
               <td>{card.titre}</td>
               <td>{card.nom_entreprise}</td>
               <td>
-                <button onClick={() => handleUpdate(card)}>Update</button>
-                <button onClick={() => handleDelete(card.id)}>Delete</button>
+                <button className="btn btn-info btn-sm me-2" onClick={() => handleUpdate(card)}><i className='fas fa-terminal'></i></button>
+                <button className="btn btn-danger btn-sm" onClick={() => handleDelete(card.id)}><i className='fas fa-trash'></i></button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
+  </div>
   );
 }
-
 
 export default Cards;
